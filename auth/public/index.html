@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="Heroes">
+    <head>
+        <title>Heroes of Ajax!</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/js/module.heroes.js"></script>
+        <script src="/js/controller.home.js"></script>
+        <script src="/js/factory.heroes.js"></script>
+
+    </head>
+    <body ng-controller="homeController as home">
+            <h1>{{home.greeting}}</h1>
+
+            <p><a href="/logout">Logout</a></p>
+
+            <form ng-submit="home.createHero()">
+                <input class="form-control" ng-model="home.newHero.name" placeholder="Name">
+
+                <input class="form-control" ng-model="home.newHero.costume" placeholder="Costume">
+
+                <input class="form-control" ng-model="home.newHero.powers" placeholder="Powers" ng-list>
+
+                <input class="form-control" ng-model="home.newHero.facialHair" type="checkbox">
+
+                <textarea class="form-control" ng-model="home.newHero.backStory" placeholder="Backstory"></textarea>
+
+                <input type="submit">
+            </form>
+
+        <ul>
+            <li ng-repeat="hero in home.heroList">
+                {{hero.name}}
+            </li>
+
+        </ul>
+
+        {{home.hero.name}}
+
+    </body>
+</html>
